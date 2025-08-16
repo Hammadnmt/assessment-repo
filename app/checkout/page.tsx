@@ -32,14 +32,8 @@ export default function page() {
                       key={item.id}
                       className="px-6 py-4 flex items-center gap-4 hover:bg-gray-50 transition"
                     >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-16 w-24 object-cover rounded-lg border border-gray-200"
-                      />
-
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-gray-800 truncate">{item.title}</p>
+                        <p className="font-medium text-gray-800 truncate">{item.name}</p>
                         <div className="mt-1 text-sm text-gray-500">Price: {formatCurrency(item.price)}</div>
                       </div>
 
@@ -49,7 +43,7 @@ export default function page() {
                           onClick={() => decreaseQuantity(item.id)}
                           disabled={item.quantity <= 1}
                           className="h-9 w-9 rounded-xl border border-gray-300 bg-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 active:scale-95 transition"
-                          aria-label={`Decrease ${item.title} quantity`}
+                          aria-label={`Decrease ${item.name} quantity`}
                           title={item.quantity <= 1 ? "Minimum quantity is 1" : "Decrease"}
                         >
                           −
