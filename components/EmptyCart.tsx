@@ -1,3 +1,4 @@
+"use client";
 export default function EmptyState() {
   return (
     <div className="rounded-2xl bg-white p-10 shadow-md text-center">

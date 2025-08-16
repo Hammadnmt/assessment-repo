@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import ProductCard from "@/components/Product";
 import { useRouter } from "next/navigation";
-import { useCart } from "@/context/cart/cart.context";
 export default function page() {
   const products = [
     {
@@ -79,11 +78,6 @@ export default function page() {
     },
   ];
   const router = useRouter();
-  const { items } = useCart();
-
-  useEffect(() => {
-    console.log("items", items);
-  }, [items]);
   return (
     <div className="flex justify-center items-center min-h-screen bg-black p-4 gap-6">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-6 w-full max-w-6xl">

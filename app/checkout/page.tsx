@@ -19,13 +19,11 @@ export default function page() {
           <EmptyState />
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Cart Items */}
             <div className="lg:col-span-2">
               <div className="overflow-hidden rounded-2xl bg-white shadow-md">
                 <div className="px-6 py-4 border-b border-gray-200 bg-indigo-50">
                   <h2 className="text-lg font-semibold text-indigo-800">Your Cart ({itemCounter})</h2>
                 </div>
-
                 <ul className="divide-y divide-gray-200">
                   {items.map((item) => (
                     <li
