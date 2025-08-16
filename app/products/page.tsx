@@ -85,9 +85,9 @@ export default function page() {
     console.log("items", items);
   }, [items]);
   return (
-    <div className="flex justify-center items-center min-h-screen bg-black p-4">
-      <div className="grid md:grid-cols-3 grid-cols-1">
-        {products.map((product, index) => (
+    <div className="flex flex-col items-center min-h-screen bg-black p-4 gap-6">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-6 w-full max-w-6xl">
+        {products.map((product) => (
           <ProductCard
             key={product.id}
             id={product.id}
@@ -97,8 +97,12 @@ export default function page() {
           />
         ))}
       </div>
-      <button className="text-2xl text-white" onClick={() => router.push("/checkout")}>
-        Proceed
+
+      <button
+        className="mt-4 px-6 py-3 rounded-2xl bg-indigo-600 text-white text-lg font-semibold shadow hover:bg-indigo-700 active:scale-[0.98] transition-transform"
+        onClick={() => router.push("/checkout")}
+      >
+        Proceed to Checkout
       </button>
     </div>
   );

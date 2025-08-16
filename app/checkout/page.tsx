@@ -42,7 +42,7 @@ export default function page() {
                         <button
                           onClick={() => decreaseQuantity(item.id)}
                           disabled={item.quantity <= 1}
-                          className="h-9 w-9 rounded-xl border border-gray-300 bg-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-100 active:scale-95 transition"
+                          className="h-9 w-9 rounded-xl border border-gray-300 bg-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 active:scale-95 transition"
                           aria-label={`Decrease ${item.name} quantity`}
                           title={item.quantity <= 1 ? "Minimum quantity is 1" : "Decrease"}
                         >
@@ -54,7 +54,7 @@ export default function page() {
                         <button
                           onClick={() => increaseQuantity(item.id)}
                           className="h-9 w-9 rounded-xl border border-gray-300 bg-white hover:bg-gray-100 active:scale-95 transition"
-                          aria-label={`Increase ${item.title} quantity`}
+                          aria-label={`Increase ${item.name} quantity`}
                           title="Increase"
                         >
                           +
@@ -70,7 +70,7 @@ export default function page() {
                       <button
                         onClick={() => removeFromCart(item.id)}
                         className="ml-2 text-sm text-red-600 hover:text-red-700 hover:underline"
-                        aria-label={`Remove ${item.title}`}
+                        aria-label={`Remove ${item.name}`}
                       >
                         Remove
                       </button>
@@ -80,7 +80,6 @@ export default function page() {
               </div>
             </div>
 
-            {/* Order Summary */}
             <aside className="lg:col-span-1">
               <div className="rounded-2xl bg-white shadow-md p-6 sticky top-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Order Summary</h3>
