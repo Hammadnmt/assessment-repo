@@ -24,7 +24,7 @@ export default function ProductPage() {
           {products.map((product) => (
             <ProductCard
               key={product._id}
-              id={product._id}
+              _id={product._id.toString()}
               name={product.name}
               price={product.price}
               image={product.image}

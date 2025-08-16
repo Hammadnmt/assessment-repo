@@ -25,10 +25,9 @@ export default function CheckoutPage() {
                 <h2 className="text-lg font-semibold text-indigo-800">Your Cart ({itemCounter})</h2>
               </div>
               <ul className="divide-y divide-gray-200">
-                {Array.isArray(items) &&
-                  items.map((item) => (
-                    <CartItemRow key={item._id} item={item} formatCurrency={formatCurrency} />
-                  ))}
+                {items.map((item) => (
+                  <CartItemRow key={item._id} item={item} formatCurrency={formatCurrency} />
+                ))}
               </ul>
             </div>
           </div>

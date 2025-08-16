@@ -27,7 +27,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const clearCart = async () => {
     try {
       for (const item of items) {
-        await fetch(`/api/cart/${item.id}`, { method: "DELETE" });
+        await fetch(`/api/cart/${item._id}`, { method: "DELETE" });
       }
       setItems([]);
     } catch (error) {
@@ -38,11 +38,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const addToCart = async (item: CartItem) => {
     try {
       console.log("adding product");
-      const existing = Array.isArray(items) && items.find((i) => i._id === item.id);
+      const existing = Array.isArray(items) && items.find((i) => i._id === item._id);
       const payload = existing ? { quantity: existing.quantity + 1 } : { ...item, quantity: 1 };
 
       const method = existing ? "PUT" : "POST";
-      const url = existing ? `/api/cart/${item.id}` : "/api/cart";
+      const url = existing ? `/api/cart/${item._id}` : "/api/cart";
 
       const res = await fetch(url, {
         method,
@@ -65,11 +65,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   const increaseQuantity = async (id: string) => {
-    console.log("inc id", id);
-    const item = Array.isArray(items) && items.find((item) => item._id === id);
+    const item = items.find((item) => item._id === id);
     await fetch(`api/cart/${id}`, {
       method: "PUT",
-      body: JSON.stringify({ quantity: item.quantity + 1 }),
+      body: JSON.stringify({ quantity: (item?.quantity ?? 0) + 1 }),
     });
     await fetchCart();
   };
@@ -79,7 +78,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     if (!item) return;
 
     try {
-      await fetch(`/api/cart/${id}`, {
+      await fetch(`/api/cart/${item._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ quantity: item.quantity - 1 }),
@@ -91,9 +90,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   function calcualtions() {
-    const itemCounter = Array.isArray(items) && items.length;
-    const totalPrice =
-      Array.isArray(items) && items.reduce((total, item) => total + item.price * item.quantity, 0);
+    const itemCounter = items.length;
+    const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
     return { itemCounter, totalPrice };
   }
   const { itemCounter, totalPrice } = calcualtions();
@@ -109,7 +107,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         clearCart,
         itemCounter,
         totalPrice,
-        loading,
       }}
     >
       {children}

@@ -2,14 +2,14 @@ import React from "react";
 import { useProductCard } from "@/hooks/useProductCard";
 
 interface ProductCardProps {
-  id: string;
+  _id: string;
   name: string;
   price: number;
   image: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image }) => {
-  const { handleAddToCart } = useProductCard(name, id, price);
+const ProductCard: React.FC<ProductCardProps> = ({ _id, name, price }) => {
+  const { handleAddToCart } = useProductCard(name, _id, price);
 
   return (
     <div className="product-card bg-black text-white m-1 max-w-xs rounded-lg border border-gray-600 p-4 shadow-lg flex flex-col justify-between gap-3">

@@ -5,7 +5,7 @@ import connectDb from "@/config/connection";
  * GET /products
  * Fetch all products from the database
  */
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     await connectDb();
     // Fetch all products using the service

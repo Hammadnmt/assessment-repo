@@ -2,6 +2,7 @@ import { models, model, Schema, Document } from "mongoose";
 
 // TypeScript interface (optional but recommended)
 export interface ProductItem extends Document {
+  _id: string;
   name: string;
   price: number;
   image?: string;

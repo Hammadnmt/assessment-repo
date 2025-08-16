@@ -6,10 +6,11 @@ import connectDb from "@/config/connection";
  * PUT /cart/:id
  * Update quantity of a cart item
  */
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     await connectDb();
-    const { id } = await params;
+    const id = (await params).id;
+
     const body = await req.json();
     console.log("req is here with body", body);
     const updatedItem = await cartService.updateItemQuantity(id, body.quantity);
@@ -30,10 +31,11 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
  * DELETE /cart/:id
  * Remove a cart item
  */
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await connectDb();
-    const { id } = await params;
+    const id = (await params).id;
+
     const removedItem = await cartService.removeItem(id);
 
     if (!removedItem) {
@@ -42,7 +44,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
 
     return NextResponse.json({ success: true, data: removedItem }, { status: 200 });
   } catch (error: unknown) {
-    console.error(`Error removing cart item ${params.id}:`, error);
+    console.error(`Error removing cart item`, error);
     const message = error instanceof Error ? error.message : "Internal Server Error";
     return NextResponse.json({ success: false, message }, { status: 500 });
   }
