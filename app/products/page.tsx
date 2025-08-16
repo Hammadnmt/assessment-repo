@@ -85,7 +85,7 @@ export default function page() {
     console.log("items", items);
   }, [items]);
   return (
-    <div className="flex flex-col items-center min-h-screen bg-black p-4 gap-6">
+    <div className="flex justify-center items-center min-h-screen bg-black p-4 gap-6">
       <div className="grid md:grid-cols-3 grid-cols-1 gap-6 w-full max-w-6xl">
         {products.map((product) => (
           <ProductCard

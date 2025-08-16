@@ -39,7 +39,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   // 🔹 Derived values
-  const itemCounter = items.reduce((count, item) => count + item.quantity, 0);
+  const itemCounter = items.length;
   const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
