@@ -7,7 +7,6 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-indigo-900 via-black to-gray-900">
         <div className="container mx-auto px-6 py-32 text-center">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">Elevate Your Trading Game</h1>
@@ -25,7 +24,6 @@ export default function LandingPage() {
         <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-gray-900 to-transparent"></div>
       </section>
 
-      {/* Features Section */}
       <section className="container mx-auto px-6 py-24">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Us</h2>
         <div className="grid md:grid-cols-3 gap-10 text-center">
@@ -50,7 +48,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
       <section className="bg-indigo-900 py-24">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Start Trading Smarter Today</h2>
@@ -66,7 +63,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 py-6 text-center text-gray-400">
         &copy; {new Date().getFullYear()} TradeMaster AI. All rights reserved.
       </footer>

@@ -1,4 +1,4 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, models, model, Document, Model } from "mongoose";
 
 // Interface for TypeScript type checking
 export interface CartItem extends Document {
@@ -31,4 +31,4 @@ const cartItemSchema = new Schema<CartItem>(
 ); // Automatically adds createdAt and updatedAt fields
 
 // Create and export the model
-export const CartItemModel = model<CartItem>("CartItem", cartItemSchema);
+export const CartItemModel: Model<CartItem> = models.CartItem || model<CartItem>("CartItem", cartItemSchema);

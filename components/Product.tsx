@@ -1,32 +1,25 @@
 import React from "react";
-import Image from "next/image";
-import { useCart } from "@/context/cart/cart.context";
-import toast from "react-hot-toast";
+import { useProductCard } from "@/hooks/useProductCard";
+
 interface ProductCardProps {
-  title: string;
-  newPrice: number;
+  id: string;
+  name: string;
+  price: number;
   image: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image }) => {
-  const { addToCart } = useCart();
-  function handleAddToCart() {
-    addToCart({ id, name, price, quantity: 1 });
-    toast.success("Product Added to Cart");
-  }
+  const { handleAddToCart } = useProductCard(name, id, price);
+
   return (
-    <div className="bg-black text-white m-1 max-w-xs rounded-lg border-[1px] border-gray-600 p-4 shadow-lg flex flex-col justify-between gap-3">
-      <div className="">
-        <div>
-          <h2 className="text-lg font-bold">{name}</h2>
-        </div>
-        <div>
-          <span className="text-2xl font-bold">${price}</span>
-        </div>
+    <div className="product-card bg-black text-white m-1 max-w-xs rounded-lg border border-gray-600 p-4 shadow-lg flex flex-col justify-between gap-3">
+      <div className="product-details">
+        <h2 className="text-lg font-bold">{name}</h2>
+        <span className="text-2xl font-bold">${price}</span>
       </div>
       <div className="w-full">
         <button
-          className="bg-sky-400 text-black py-2 rounded-md hover:bg-sky-300 font-semibold w-full"
+          className="add-to-cart-btn bg-sky-400 text-black py-2 rounded-md hover:bg-sky-300 font-semibold w-full"
           onClick={handleAddToCart}
         >
           Add to Cart

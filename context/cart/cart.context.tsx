@@ -5,56 +5,98 @@ import { CartContextType, CartItem } from "./cart.types";
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  // 🔹 Load initial cart from localStorage
-  const [items, setItems] = useState<CartItem[]>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("cart");
-      return saved ? JSON.parse(saved) : [];
+  const [items, setItems] = useState<CartItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // 🔹 Load initial cart from API
+  console.log("items", items);
+  const fetchCart = async () => {
+    try {
+      const res = await fetch("/api/cart");
+      const data = await res.json();
+      if (data.success && Array.isArray(data.data)) setItems(data.data);
+    } catch (error) {
+      console.error("Failed to fetch cart:", error);
+    } finally {
+      setLoading(false);
     }
-    return [];
-  });
-
-  // 🔹 Sync cart to localStorage whenever it changes
+  };
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(items));
-  }, [items]);
-
-  // 🔹 Cart functions
-  const addToCart = (item: CartItem) => {
-    setItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id);
-      if (existingItem) {
-        return prevItems.map((prevItem) =>
-          prevItem.id === item.id ? { ...prevItem, quantity: prevItem.quantity + 1 } : prevItem
-        );
+    fetchCart();
+  }, []);
+  const clearCart = async () => {
+    try {
+      for (const item of items) {
+        await fetch(`/api/cart/${item.id}`, { method: "DELETE" });
       }
-      return [...prevItems, { ...item, quantity: 1 }];
+      setItems([]);
+    } catch (error) {
+      console.error("Failed to clear cart:", error);
+    }
+  };
+  //  Cart functions with API integration
+  const addToCart = async (item: CartItem) => {
+    try {
+      console.log("adding product");
+      const existing = Array.isArray(items) && items.find((i) => i._id === item.id);
+      const payload = existing ? { quantity: existing.quantity + 1 } : { ...item, quantity: 1 };
+
+      const method = existing ? "PUT" : "POST";
+      const url = existing ? `/api/cart/${item.id}` : "/api/cart";
+
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      await fetchCart();
+    } catch (error) {
+      console.error("Failed to add to cart:", error);
+    }
+  };
+
+  const removeFromCart = async (id: string) => {
+    try {
+      await fetch(`/api/cart/${id}`, { method: "DELETE" });
+      await fetchCart();
+    } catch (error) {
+      console.error("Failed to remove from cart:", error);
+    }
+  };
+
+  const increaseQuantity = async (id: string) => {
+    console.log("inc id", id);
+    const item = Array.isArray(items) && items.find((item) => item._id === id);
+    await fetch(`api/cart/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({ quantity: item.quantity + 1 }),
     });
+    await fetchCart();
   };
 
-  const removeFromCart = (id: number) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  const decreaseQuantity = async (id: string) => {
+    const item = items.find((item) => item._id === id);
+    if (!item) return;
+
+    try {
+      await fetch(`/api/cart/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ quantity: item.quantity - 1 }),
+      });
+      await fetchCart();
+    } catch (error) {
+      console.error("Failed to decrease quantity:", error);
+    }
   };
 
-  const increaseQuantity = (id: number) => {
-    setItems((prevItems) =>
-      prevItems.map((item) => (item.id === id ? { ...item, quantity: item.quantity + 1 } : item))
-    );
-  };
-
-  const decreaseQuantity = (id: number) => {
-    setItems((prevItems) =>
-      prevItems
-        .map((item) => (item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
-        .filter((item) => item.quantity > 0)
-    );
-  };
-
-  const clearCart = () => setItems([]);
-
-  // 🔹 Derived values
-  const itemCounter = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
+  function calcualtions() {
+    const itemCounter = Array.isArray(items) && items.length;
+    const totalPrice =
+      Array.isArray(items) && items.reduce((total, item) => total + item.price * item.quantity, 0);
+    return { itemCounter, totalPrice };
+  }
+  const { itemCounter, totalPrice } = calcualtions();
 
   return (
     <CartContext.Provider
@@ -67,6 +109,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         clearCart,
         itemCounter,
         totalPrice,
+        loading,
       }}
     >
       {children}
@@ -76,8 +119,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
 export function useCart() {
   const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart must be used within a CartProvider");
-  }
+  if (!context) throw new Error("useCart must be used within a CartProvider");
   return context;
 }

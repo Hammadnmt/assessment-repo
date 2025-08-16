@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import cartService from "@/services/Cart";
+import connectDb from "@/config/connection";
 
 /**
  * PUT /cart/:id
@@ -7,8 +8,10 @@ import cartService from "@/services/Cart";
  */
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const { id } = params;
+    await connectDb();
+    const { id } = await params;
     const body = await req.json();
+    console.log("req is here with body", body);
     const updatedItem = await cartService.updateItemQuantity(id, body.quantity);
 
     if (!updatedItem) {
@@ -17,7 +20,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
     return NextResponse.json({ success: true, data: updatedItem }, { status: 200 });
   } catch (error: unknown) {
-    console.error(`Error updating cart item ${params.id}:`, error);
+    console.error(`Error updating cart item`, error);
     const message = error instanceof Error ? error.message : "Internal Server Error";
     return NextResponse.json({ success: false, message }, { status: 500 });
   }
@@ -29,7 +32,8 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
  */
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const { id } = params;
+    await connectDb();
+    const { id } = await params;
     const removedItem = await cartService.removeItem(id);
 
     if (!removedItem) {

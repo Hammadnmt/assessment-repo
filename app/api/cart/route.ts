@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import cartService from "@/services/Cart";
+import connectDb from "@/config/connection";
 
 /**
  * GET /cart
@@ -7,6 +8,7 @@ import cartService from "@/services/Cart";
  */
 export async function GET() {
   try {
+    await connectDb();
     const items = await cartService.getAllItems();
     return NextResponse.json({ success: true, data: items }, { status: 200 });
   } catch (error: unknown) {
@@ -22,6 +24,7 @@ export async function GET() {
  */
 export async function POST(req: NextRequest) {
   try {
+    await connectDb();
     const body = await req.json();
     const newItem = await cartService.addItem(body);
     return NextResponse.json({ success: true, data: newItem }, { status: 201 });
