@@ -1,148 +1,105 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import ProductCard from "@/components/Product";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/context/cart/cart.context";
 export default function page() {
   const products = [
     {
+      id: 1,
       title: "IA Pair Trading on Steroids",
-      acronym: "PTOS",
-      description:
-        "Designed for both non-option and option traders, Pair Trading on Steroids helps you hedge your portfolio with inversely correlated assets, reduce risk and amplify profits.",
-      oldPrice: 99,
-      newPrice: 69,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 69,
+      image: "https://via.placeholder.com/300x200?text=IA+Pair+Trading",
     },
     {
+      id: 2,
       title: "Crypto Arbitrage Mastery",
-      acronym: "CAM",
-      description:
-        "Leverage market inefficiencies across exchanges to maximize your crypto profits while minimizing risks.",
-      oldPrice: 120,
-      newPrice: 85,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 85,
+      image: "https://via.placeholder.com/300x200?text=Crypto+Arbitrage",
     },
     {
+      id: 3,
       title: "AI Market Prediction Pro",
-      acronym: "AMPP",
-      description: "Predict market movements with cutting-edge AI models trained on years of financial data.",
-      oldPrice: 150,
-      newPrice: 110,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 110,
+      image: "https://via.placeholder.com/300x200?text=AI+Prediction",
     },
     {
+      id: 4,
       title: "Options Hedging Toolkit",
-      acronym: "OHT",
-      description:
-        "Tools and strategies to effectively hedge your options positions and minimize downside risks.",
-      oldPrice: 80,
-      newPrice: 55,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 55,
+      image: "https://via.placeholder.com/300x200?text=Options+Toolkit",
     },
     {
+      id: 5,
       title: "Forex Swing Trader",
-      acronym: "FST",
-      description: "Capture medium-term currency moves using proven swing trading strategies.",
-      oldPrice: 95,
-      newPrice: 65,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 65,
+      image: "https://via.placeholder.com/300x200?text=Forex+Swing",
     },
     {
+      id: 6,
       title: "Commodities Gold Rush",
-      acronym: "CGR",
-      description: "Capitalize on commodity cycles, focusing on gold, silver, and energy markets.",
-      oldPrice: 130,
-      newPrice: 99,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 99,
+      image: "https://via.placeholder.com/300x200?text=Gold+Rush",
     },
     {
+      id: 7,
       title: "Volatility Crusher",
-      acronym: "VC",
-      description: "Trade volatility like a pro using options strategies designed for unstable markets.",
-      oldPrice: 110,
-      newPrice: 79,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 79,
+      image: "https://via.placeholder.com/300x200?text=Volatility",
     },
     {
+      id: 8,
       title: "ETF Growth Engine",
-      acronym: "EGE",
-      description: "Long-term ETF strategies for steady portfolio growth with lower risk exposure.",
-      oldPrice: 105,
-      newPrice: 75,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 75,
+      image: "https://via.placeholder.com/300x200?text=ETF+Growth",
     },
     {
+      id: 9,
       title: "Penny Stock Radar",
-      acronym: "PSR",
-      description: "Identify high-potential penny stocks before they hit the mainstream market.",
-      oldPrice: 60,
-      newPrice: 39,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 39,
+      image: "https://via.placeholder.com/300x200?text=Penny+Stocks",
     },
     {
+      id: 10,
       title: "Tech Sector Alpha",
-      acronym: "TSA",
-      description: "Focus on disruptive technology companies for high-growth opportunities.",
-      oldPrice: 140,
-      newPrice: 99,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 99,
+      image: "https://via.placeholder.com/300x200?text=Tech+Alpha",
     },
     {
+      id: 11,
       title: "Real Estate REITs Mastery",
-      acronym: "RRM",
-      description: "Maximize returns through Real Estate Investment Trusts with expert guidance.",
-      oldPrice: 125,
-      newPrice: 89,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 89,
+      image: "https://via.placeholder.com/300x200?text=REITs+Mastery",
     },
     {
+      id: 12,
       title: "Index Fund Booster",
-      acronym: "IFB",
-      description: "Boost passive index fund returns with smart portfolio rebalancing strategies.",
-      oldPrice: 70,
-      newPrice: 49,
-      currency: "USD",
-      billingCycle: "monthly",
-      learnMoreUrl: "#",
+      price: 49,
+      image: "https://via.placeholder.com/300x200?text=Index+Booster",
     },
   ];
+  const router = useRouter();
+  const { items } = useCart();
+
+  useEffect(() => {
+    console.log("items", items);
+  }, [items]);
   return (
     <div className="flex justify-center items-center min-h-screen bg-black p-4">
       <div className="grid md:grid-cols-3 grid-cols-1">
         {products.map((product, index) => (
           <ProductCard
-            key={index}
-            title={product.title}
-            acronym={product.acronym}
-            description={product.description}
-            oldPrice={product.oldPrice}
-            newPrice={product.newPrice}
-            currency={product.currency}
-            billingCycle={product.billingCycle}
-            learnMoreUrl={product.learnMoreUrl}
+            key={product.id}
+            id={product.id}
+            name={product.title}
+            price={product.price}
+            image={product.image}
           />
         ))}
       </div>
+      <button className="text-2xl text-white" onClick={() => router.push("/checkout")}>
+        Proceed
+      </button>
     </div>
   );
 }
