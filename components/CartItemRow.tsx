@@ -4,6 +4,7 @@ import { useCart } from "@/context/cart/cart.context";
 
 interface Props {
   item: CartItem;
+  key: string;
   formatCurrency: (amount: number) => string;
 }
 

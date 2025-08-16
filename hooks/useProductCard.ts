@@ -8,7 +8,7 @@ export function useProductCard(name: string, id: string, price: number) {
    * Handles adding the product to the cart and shows a toast
    */
   const handleAddToCart = () => {
-    addToCart({ id, name, price, quantity: 1 });
+    addToCart({ _id: id, name, price, quantity: 1 });
     toast.success(`${name} added to cart`);
   };
 
