@@ -28,12 +28,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
   const clearCart = async () => {
     try {
+      setLoading(true);
       for (const item of items) {
         await fetch(`/api/cart/${item._id}`, { method: "DELETE" });
       }
       setItems([]);
     } catch (error) {
+      setLoading(false);
       console.error("Failed to clear cart:", error);
+    } finally {
+      setLoading(false);
     }
   };
   //  Cart functions with API integration
@@ -57,7 +61,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       console.error("Failed to add to cart:", error);
     }
   };
-
+  const cartEmpty = () => {
+    setItems([]);
+  };
   const removeFromCart = async (id: string) => {
     try {
       await fetch(`/api/cart/${id}`, { method: "DELETE" });
@@ -107,9 +113,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
+        cartEmpty,
         clearCart,
         itemCounter,
         totalPrice,
+        loading,
       }}
     >
       {children}

@@ -13,6 +13,8 @@ export type CartContextType = {
   increaseQuantity: (id: string) => void;
   decreaseQuantity: (id: string) => void;
   clearCart: () => void;
+  cartEmpty: () => void;
   itemCounter: number;
   totalPrice: number;
+  loading: boolean;
 };
