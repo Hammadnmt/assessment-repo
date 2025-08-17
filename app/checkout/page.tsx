@@ -3,7 +3,7 @@ import React from "react";
 import { useCheckout } from "@/hooks/useCheckout";
 import EmptyState from "@/components/EmptyCart";
 import { CartItemRow } from "@/components/CartItemRow";
-import PaymentForm, { OrderSummary } from "@/components/OrderSummary";
+import PaymentForm from "@/components/OrderSummary";
 
 export default function CheckoutPage() {
   const { items, totalPrice, itemCounter, isEmpty } = useCheckout();
