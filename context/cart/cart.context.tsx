@@ -26,7 +26,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     fetchCart();
   }, []);
-  const clearCart = async () => {
+  const clearCart = async (items: CartItem[]) => {
     try {
       setLoading(true);
       for (const item of items) {

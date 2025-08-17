@@ -22,6 +22,13 @@ export default function CheckoutPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const handleSubmit = async () => {
+    try {
+      await clearCart(items);
+      cartEmpty();
+      toast.success("Order Placed");
+    } catch (error) {}
+  };
   if (loading) return <Loading />;
   if (isEmpty) return <EmptyState />;
 
@@ -46,7 +53,6 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          {/* Checkout Summary + Form */}
           <aside className="lg:col-span-1">
             <div className="rounded-2xl bg-black border border-gray-700 shadow-md p-6 sticky top-6">
               <h3 className="text-lg font-semibold text-white mb-4">Order Summary</h3>
@@ -92,10 +98,7 @@ export default function CheckoutPage() {
                 <button
                   type="submit"
                   className="mt-4 w-full rounded-lg bg-indigo-600 text-white py-3 font-semibold hover:bg-indigo-700 transition"
-                  onClick={async () => {
-                    toast.success("Order Placed");
-                    cartEmpty();
-                  }}
+                  onClick={handleSubmit}
                 >
                   Complete Checkout
                 </button>
