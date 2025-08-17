@@ -4,6 +4,7 @@ import { models, model, Schema, Document } from "mongoose";
 export interface ProductItem extends Document {
   _id: string;
   name: string;
+  description: string;
   price: number;
   image?: string;
 }
@@ -15,6 +16,9 @@ const productSchema = new Schema<ProductItem>(
       type: String,
       required: true,
       trim: true, // removes extra spaces
+    },
+    description: {
+      type: String,
     },
     price: {
       type: Number,

@@ -42,10 +42,7 @@ export default function RootLayout({
               },
             }}
           />
-          <main className="min-h-screen flex flex-col">
-            <Navbar />
-            {children}
-          </main>
+          <main className="min-h-screen flex flex-col">{children}</main>
         </CartProvider>
       </body>
     </html>

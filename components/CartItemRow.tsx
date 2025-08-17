@@ -9,16 +9,17 @@ interface Props {
 }
 
 /**
- * Component to render a single cart item row
+ * Component to render a single cart item row (dark themed)
  */
 export const CartItemRow: React.FC<Props> = ({ item, formatCurrency }) => {
   const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
 
   return (
-    <li className="px-6 py-4 flex items-center gap-4 hover:bg-gray-50 transition">
+    <li className="px-6 py-4 flex items-center gap-4 border-b border-gray-700 last:border-b-0">
+      {/* Item details */}
       <div className="flex-1 min-w-0">
-        <p className="font-medium text-gray-800 truncate">{item.name}</p>
-        <div className="mt-1 text-sm text-gray-500">Price: {formatCurrency(item.price)}</div>
+        <p className="font-medium text-white truncate">{item.name}</p>
+        <div className="mt-1 text-sm text-gray-400">Price: {formatCurrency(item.price)}</div>
       </div>
 
       {/* Quantity Controls */}
@@ -26,15 +27,15 @@ export const CartItemRow: React.FC<Props> = ({ item, formatCurrency }) => {
         <button
           onClick={() => decreaseQuantity(item._id)}
           disabled={item.quantity <= 1}
-          className="h-9 w-9 rounded-xl border border-gray-300 bg-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 active:scale-95 transition"
+          className="h-9 w-9 flex items-center justify-center rounded-lg border border-gray-600 bg-gray-800 text-white disabled:opacity-40 disabled:cursor-not-allowed"
           aria-label={`Decrease ${item.name} quantity`}
         >
           −
         </button>
-        <span className="w-10 text-center font-medium text-gray-800 select-none">{item.quantity}</span>
+        <span className="w-10 text-center font-medium text-white select-none">{item.quantity}</span>
         <button
           onClick={() => increaseQuantity(item._id)}
-          className="h-9 w-9 rounded-xl border border-gray-300 bg-white hover:bg-gray-100 active:scale-95 transition"
+          className="h-9 w-9 flex items-center justify-center rounded-lg border border-gray-600 bg-gray-800 text-white"
           aria-label={`Increase ${item.name} quantity`}
         >
           +
@@ -42,15 +43,12 @@ export const CartItemRow: React.FC<Props> = ({ item, formatCurrency }) => {
       </div>
 
       {/* Line total */}
-      <div className="w-28 text-right font-semibold text-gray-900">
+      <div className="w-28 text-right font-semibold text-white">
         {formatCurrency(item.price * item.quantity)}
       </div>
 
       {/* Remove */}
-      <button
-        onClick={() => removeFromCart(item._id)}
-        className="ml-2 text-sm text-red-600 hover:text-red-700 hover:underline"
-      >
+      <button onClick={() => removeFromCart(item._id)} className="ml-2 text-sm text-red-500">
         Remove
       </button>
     </li>
