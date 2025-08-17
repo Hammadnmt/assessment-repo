@@ -27,7 +27,6 @@ const productSchema = new Schema<ProductItem>(
     },
     image: {
       type: String,
-      default: "", // optional
     },
   },
   { timestamps: true } // adds createdAt and updatedAt

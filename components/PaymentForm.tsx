@@ -20,7 +20,7 @@ const PaymentForm: React.FC = () => {
             className="w-full bg-transparent py-3 text-white placeholder-gray-500 focus:outline-none"
           />
           <span className="text-xs bg-green-600 text-white px-2 py-1 rounded-md mr-2">link</span>
-          <span className="bg-white text-black px-2 py-1 rounded-md text-xs font-semibold">VISA 4242</span>
+          <span className="bg-gray-700 text-black px-2 py-1 rounded-md text-xs font-semibold">VISA 4242</span>
         </div>
       </div>
 

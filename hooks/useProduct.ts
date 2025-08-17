@@ -4,6 +4,7 @@ export interface Product {
   _id: string | number;
   name: string;
   price: number;
+  description: string;
   image: string;
 }
 
@@ -26,7 +27,7 @@ export function useProducts(): UseProductsReturn {
       try {
         const res = await fetch("/api/product");
         const data = await res.json();
-
+        console.log("products in fetch", data.data);
         if (data.success) {
           setProducts(data.data);
         } else {

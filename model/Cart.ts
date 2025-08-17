@@ -5,6 +5,7 @@ export interface CartItem extends Document {
   name: string;
   price: number;
   quantity: number;
+  image: string;
 }
 
 // Define the schema for a cart item
@@ -25,6 +26,9 @@ const cartItemSchema = new Schema<CartItem>(
       required: true,
       min: 1, // Quantity must be at least 1
       default: 1,
+    },
+    image: {
+      type: String,
     },
   },
   { timestamps: true }

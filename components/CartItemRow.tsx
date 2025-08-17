@@ -1,6 +1,7 @@
 import React from "react";
 import { CartItem } from "@/context/cart/cart.types";
 import { useCart } from "@/context/cart/cart.context";
+import Image from "next/image";
 
 interface Props {
   item: CartItem;
@@ -17,9 +18,16 @@ export const CartItemRow: React.FC<Props> = ({ item, formatCurrency }) => {
   return (
     <li className="px-6 py-4 flex items-center gap-4 border-b border-gray-700 last:border-b-0">
       {/* Item details */}
-      <div className="flex-1 min-w-0">
-        <p className="font-medium text-white truncate">{item.name}</p>
+      <div className="flex-2 min-w-0">
+        <Image
+          src={item.image}
+          width={50}
+          height={50}
+          alt={item.name}
+          className="mb-[3px] object-cover rounded-[2px]"
+        />
         <div className="mt-1 text-sm text-gray-400">Price: {formatCurrency(item.price)}</div>
+        <p className="font-medium text-white truncate">{item.name}</p>
       </div>
 
       {/* Quantity Controls */}

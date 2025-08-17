@@ -1,30 +1,28 @@
 import React from "react";
 import { useProductCard } from "@/hooks/useProductCard";
+import Image from "next/image";
 
 interface ProductCardProps {
   _id: string;
   name: string;
+  description: string;
   price: number;
-  image?: string;
+  image: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ _id, name, price }) => {
-  const { handleAddToCart } = useProductCard(name, _id, price);
+const ProductCard: React.FC<ProductCardProps> = ({ _id, name, price, description, image }) => {
+  const { handleAddToCart } = useProductCard(name, _id, price, image);
 
   return (
     <div className="bg-black text-white rounded-lg border border-gray-700 shadow-md max-w-sm flex flex-col">
-      {/* Image placeholder */}
-      <div className="h-24 w-full flex items-center justify-center bg-gray-900 rounded-t-lg">
-        <span className="text-gray-500 text-xs">[Image here]</span>
+      <div className="h-24 w-full flex bg-gray-900 rounded-t-lg relative">
+        <Image src={image} alt={name} fill className="object-cover" />
       </div>
 
       {/* Details */}
       <div className="flex flex-col gap-2 p-3">
         <h2 className="text-sm font-semibold">{name}</h2>
-        <p className="text-gray-400 text-xs leading-snug">
-          The Arb Cloud is a model designed to help traders identify arbitrage opportunities for co-integrated
-          assets.
-        </p>
+        <p className="text-gray-400 text-xs leading-snug">{description}</p>
 
         <div className="flex items-center gap-2 mt-1">
           <span className="line-through text-gray-500 text-xs">$50</span>

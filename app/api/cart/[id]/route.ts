@@ -10,9 +10,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
   try {
     await connectDb();
     const id = (await params).id;
-
     const body = await req.json();
-    console.log("req is here with body", body);
     const updatedItem = await cartService.updateItemQuantity(id, body.quantity);
 
     if (!updatedItem) {

@@ -14,6 +14,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     try {
       const res = await fetch("/api/cart");
       const data = await res.json();
+      console.log("fetching cartss", data.data);
       if (data.success && Array.isArray(data.data)) setItems(data.data);
     } catch (error) {
       console.error("Failed to fetch cart:", error);
@@ -21,6 +22,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       setLoading(false);
     }
   };
+  console.log("itemsss in fetch", items);
   useEffect(() => {
     fetchCart();
   }, []);
@@ -37,6 +39,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   //  Cart functions with API integration
   const addToCart = async (item: CartItem) => {
     try {
+      console.log("item in aDD", item);
       console.log("adding product");
       const existing = Array.isArray(items) && items.find((i) => i._id === item._id);
       const payload = existing ? { quantity: existing.quantity + 1 } : { ...item, quantity: 1 };
