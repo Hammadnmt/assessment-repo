@@ -148,44 +148,106 @@ export default function LandingPage() {
                     $19 USD/mo.
                   </h5>
                 </div>
-                <div className="flex items-center gap-4"></div>
+                <div className="flex items-center gap-4">
+                  <button className="bg-white border rounded-[8px] py-2 px-3.5">
+                    <span className="text-[color:var(--background,#010203)] text-sm font-[350] leading-5">
+                      Subscribe
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Arc Cloud Product */}
-          <div className="flex-1 flex flex-col gap-4 p-6 rounded-lg bg-[rgba(255,255,255,0.05)]">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 relative">
-                <Image src="/image2.png" alt="Arc Cloud" layout="fill" objectFit="contain" />
+          <div className="flex-1 flex flex-col items-start self-strech gap-4 rounded-xl bg-[rgba(255,255,255,0.05)]">
+            <div className="flex flex-col items-start flex-1 self-stretch p-6 gap-6">
+              <div className="flex flex-col justify-center items-start self-stretch gap-3">
+                <Image src="/image2.png" alt="DCAS" width={128} height={128} />
+                <div className="flex flex-col items-start self-stretch gap-2">
+                  <div className="flex flex-col items-start self-stretch gap-2">
+                    <div className="flex flex-col items-start self-stretch">
+                      <h2 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-base font-light leading-[145%] tracking-[-0.48px]">
+                        Advance tool
+                      </h2>
+                      <h2 className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] font-light leading-[135%]">
+                        IA Arb Cloud
+                      </h2>
+                    </div>
+                    <div className="w-full">
+                      <h2 className="text-lg font-[325] leading-[140%] tracking-[-0.54px] text-[var(--Secondary-Heading,rgba(255,255,255,0.75))]">
+                        The Arb Cloud is a model designed to help traders identify arbitrage opportunities for
+                        co-integrated assets (for example BTC and MSTR).
+                      </h2>
+                    </div>
+                  </div>
+                  <p className="text-[color:var(--Website,#5699FF)] font-inter text-sm font-semibold leading-5">
+                    Learn more
+                  </p>
+                </div>
               </div>
-              <span className="text-white text-[18px] font-[350]">Additional tool</span>
             </div>
-            <h4 className="text-white text-[21.33px] font-[350] leading-[135%]">IA Arc Cloud</h4>
-            <p className="text-[rgba(255,255,255,0.75)] text-[16px] font-[350] leading-[140%]">
-              The Arc Cloud is a model designed to help modern identity settings automatically for
-              co-integrated size.
-            </p>
-            <div className="flex items-center gap-2 mt-auto">
-              <span className="text-white text-[18px] font-[350] line-through">$54</span>
-              <span className="text-white text-[18px] font-[350]">$24 USD/mo.</span>
+            <div className="flex flex-col items-center self-stretch gap-4 pb-4">
+              <Image src="/divider.png" width={100} height={1} alt="divider" />
+              <div className="flex justify-end items-center self-stretch py-0 px-6 gap-4">
+                <div className="flex items-center flex-1 gap-2">
+                  <h2 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-[21.33px] font-[350] leading-[120%] line-through">
+                    $54
+                  </h2>
+                  <h5 className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] font-[350] leading-[135%]">
+                    $24 USD/mo.
+                  </h5>
+                </div>
+                <div className="flex items-center gap-4">
+                  <button className="bg-white border rounded-[8px] py-2 px-3.5">
+                    <span className="text-[color:var(--background,#010203)] text-sm font-[350] leading-5">
+                      Subscribe
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Solana Product */}
-          <div className="flex-1 flex flex-col gap-4 p-6 rounded-lg bg-[rgba(255,255,255,0.05)]">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 relative">
-                <Image src="/image3.png" alt="Solana Upside Model" layout="fill" objectFit="contain" />
+          <div className="flex-1 flex flex-col items-start self-strech gap-4 rounded-xl bg-[rgba(255,255,255,0.05)]">
+            <div className="flex flex-col items-start flex-1 self-stretch p-6 gap-6">
+              <div className="flex flex-col justify-center items-start self-stretch gap-3">
+                <Image src="/image3.png" alt="DCAS" width={128} height={128} />
+                <div className="flex flex-col items-start self-stretch gap-2">
+                  <div className="flex flex-col items-start self-stretch gap-2">
+                    <div className="flex flex-col items-start self-stretch">
+                      <h2 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-base font-light leading-[145%] tracking-[-0.48px]">
+                        Introductory tool
+                      </h2>
+                      <h2 className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] font-light leading-[135%]">
+                        IA Solana Upside Model
+                      </h2>
+                    </div>
+                    <div className="w-full">
+                      <h2 className="text-lg font-[325] leading-[140%] tracking-[-0.54px] text-[var(--Secondary-Heading,rgba(255,255,255,0.75))]">
+                        Designed to help you visualize Solana’s price in comparison to several of our price
+                        prediction models (ETH + ADA), the Solana Upside Model allows you to optimally
+                        allocate Solana as well as profit take and help you get accustomed to pair trading.
+                      </h2>
+                    </div>
+                  </div>
+                  <p className="text-[color:var(--Website,#5699FF)] font-inter text-sm font-semibold leading-5">
+                    Learn more
+                  </p>
+                </div>
               </div>
-              <span className="text-white text-[18px] font-[350]">Manufacturer tool</span>
             </div>
-            <h4 className="text-white text-[21.33px] font-[350] leading-[135%]">IA Solana Upside Model</h4>
-            <p className="text-[rgba(255,255,255,0.75)] text-[16px] font-[350] leading-[140%]">
-              Designer is not key and variable. Science guides in comparison to several of our prior products
-              models.
-            </p>
-            <div className="text-white text-[18px] font-[350] mt-auto">Free</div>
+            <div className="flex flex-col items-center self-stretch gap-4 pb-4">
+              <Image src="/divider.png" width={100} height={1} alt="divider" />
+              <div className="flex justify-end items-center self-stretch py-0 px-6 gap-4">
+                <div className="flex items-center flex-1 gap-2">
+                  <h5 className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] font-[350] leading-[135%]">
+                    FREE
+                  </h5>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
