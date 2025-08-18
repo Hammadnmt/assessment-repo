@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import { CartProvider } from "@/context/cart/cart.context";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import NavBar from "./NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"], // pick weights you need
 });
 
 const geistMono = Geist_Mono({
@@ -26,7 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-gray-100`}>
+      <body
+        className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} antialiased bg-black text-gray-100`}
+      >
         <CartProvider>
           {/* Global Toast Notifications */}
           <Toaster
@@ -41,7 +49,10 @@ export default function RootLayout({
               },
             }}
           />
-          <main className="min-h-screen flex flex-col">{children}</main>
+          <main className="min-h-screen flex flex-col">
+            <NavBar />
+            {children}
+          </main>
         </CartProvider>
       </body>
     </html>

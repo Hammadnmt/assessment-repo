@@ -1,86 +1,194 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function LandingPage() {
-  const router = useRouter();
-
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <section className="relative bg-gradient-to-r from-indigo-900 via-black to-gray-900">
-        <div className="container mx-auto px-6 py-32 text-center">
-          <h1 className="max-w-3xl mx-auto text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Elevate Your Trading Game
-          </h1>
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg md:text-2xl mb-8">
-            Unlock AI-powered insights, expert strategies, and tools that give you the edge in crypto, stocks,
-            and Forex markets.
-          </p>
-          <button
-            onClick={() => router.push("/products")}
-            className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-2xl text-lg font-semibold transition-transform active:scale-[0.98]"
-          >
-            Explore Products
-          </button>
+    <div className="flex flex-col items-center gap-16 self-stretch py-12 pb-24">
+      <div className="px-60 flex flex-col self-stretch gap-6">
+        <div>
+          <h4 className="text-[28.43px] leading-[125%] font-[350] text-white">My Account</h4>
         </div>
-        <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-gray-900 to-transparent"></div>
-      </section>
-
-      <section className="container mx-auto px-6 py-24">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Us</h2>
-        <div className="grid md:grid-cols-3 gap-10 text-center">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl shadow hover:shadow-xl transition">
-            <h3 className="text-xl font-semibold mb-2">AI-Powered Insights</h3>
-            <p className="text-gray-300">
-              Make smarter trades with predictive algorithms and data-driven strategies.
-            </p>
+        <div className="flex items-center self-stretch gap-4">
+          <div>
+            <Image src="/Avatar.png" width={76} height={76} alt="avatart" />
           </div>
-          <div className="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold mb-2">Multi-Market Tools</h3>
-            <p className="text-gray-300">
-              Access advanced tools for Forex, Crypto, Stocks, and Commodities in one place.
-            </p>
+          <div className="flex items-center gap-4">
+            <h4 className="text-white text-[28.43px] not-italic font-[350] leading-[125%]">Oliva Rhye</h4>
+            <Image src="/pen.png" width={24} height={24} alt="edit" />
           </div>
-          <div className="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold mb-2">Step-by-Step Guides</h3>
-            <p className="text-gray-300">
-              Learn actionable strategies with detailed tutorials and real-world examples.
-            </p>
+          <div className="flex items-center gap-1">
+            <Image src="/email.png" width={24} height={24} alt="email" />
+            <h4 className="text-[rgba(255,255,255,0.75)] text-base font-[325] leading-6">olivia@gmail.com</h4>
+            <Image src="/pen.png" width={24} height={24} alt="pen" />
           </div>
-        </div>
-      </section>
-
-      <div className="bg-indigo-900 py-24">
-        <div className="container mx-auto px-6 text-center max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Start Trading Smarter Today</h2>
-          <p className="text-gray-200 mb-8">
-            Join thousands of traders who are leveling up their performance using AI-driven tools.
-          </p>
-          <div className="flex justify-center gap-4">
-            <button className="px-8 py-4 bg-white text-indigo-900 font-semibold rounded-2xl hover:bg-gray-200 transition-transform active:scale-[0.98]">
-              Browse Products
-            </button>
-            <button className="px-8 py-4 bg-gray-800 text-white font-semibold rounded-2xl hover:bg-gray-700 transition-transform active:scale-[0.98]">
-              Learn More
-            </button>
+          <div className="flex items-center gap-2">
+            <Image src="/logo.png" width={24} height={24} alt="email" />
+            <h4 className="text-[var(--Website,#5699FF)] text-[16px] not-italic font-[350] leading-[24px]">
+              rileyomoore
+            </h4>
+            <Image src="/arrowup.png" width={20} height={20} alt="pen" />
+            <Image src="/pen.png" width={24} height={24} alt="pen" />
           </div>
         </div>
       </div>
-
-      <footer className="bg-gray-900 py-8 text-center text-gray-400 border-t border-gray-800">
-        <div className="flex justify-center gap-6 mb-4">
-          <a href="/products" className="hover:text-white">
-            Products
-          </a>
-          <a href="/about" className="hover:text-white">
-            About
-          </a>
-          <a href="/contact" className="hover:text-white">
-            Contact
-          </a>
+      <div className="px-60 flex flex-col self-stretch gap-6">
+        <div className="flex flex-col items-start self-stretch gap-1">
+          <h3 className="text-[28.43px] leading-[125%] font-[350] text-white">Your investment persona</h3>
+          <p className="text-[rgba(255,255,255,0.75)] font-[350] text-[16px] leading-[145%] tracking-[-0.48px]">
+            All the subscriptions that you purchased
+          </p>
         </div>
-        <p>&copy; {new Date().getFullYear()} TradeMaster AI. All rights reserved.</p>
-      </footer>
+        <div className="flex items-start self-stretch gap-2.5">
+          <div className="flex flex-col items-start flex-1 border border-[#212428] rounded-lg p-6">
+            <div className="flex flex-col items-start self-stretch p-6 gap-6">
+              <div className="flex items-start self-stretch gap-4">
+                <Image src="/person.png" width={84} height={84} alt="person" />
+                <div className="flex-1 flex flex-col items-start gap-2">
+                  <div className="flex flex-col items-start self-stretch">
+                    <div className="flex items-center self-stretch gap-2">
+                      <h2 className="text-[21.33px] font-light leading-[135%] text-[var(--Primary-Heading,#FFF)]">
+                        The Architect{" "}
+                      </h2>
+                      <h2 className="text-lg font-light leading-[140%] text-[var(--Secondary-Heading,rgba(255,255,255,0.75))]">
+                        (LQNT)
+                      </h2>
+                    </div>
+                    <p className="text-lg font-[325] leading-[140%] tracking-[-0.54px] text-[var(--Secondary-Heading,rgba(255,255,255,0.75))]">
+                      Lorem ipsum dolor sit amet consectetur. Semper in tincidunt non egestas. Tellus sit nec
+                      amet quis et sagittis. Convallis id mattis fames lorem. Massa ultricies semper faucibus
+                      nullam urna. Viverra posuere laoreet diam sit dictum. Dolor velit quam sit sit imperdiet
+                      ullamcorper. Morbi sed augue adipiscing facilisi. Aliquet neque faucibus at tristique a
+                      amet risus condimentum. Risus hac diam molestie cursus sed risus ullamcorper lectus
+                      ornare. Neque eu dictumst nisl purus. Orci nibh imperdiet morbi auctor lectus
+                      ullamcorper vitae morbi vitae. Diam mauris in mauris commodo posuere laoreet. Diam at mi
+                      aliquam lacus quisque. Amet auctor adipiscing tempor volutpat. Volutpat aliquam ante ac
+                      vestibulum urna morbi etiam odio. Integer viverra aliquam habitasse tincidunt sit.
+                      Lectus nunc tempus feugiat non. Varius risus ipsum enim justo in. Donec ornare ligula
+                      purus ut scelerisque urna elementum. Enim integer in ac vitae sem. Ipsum tellus in in
+                      consectetur.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-right text-base font-[350] leading-[125%] text-[var(--Website,#5699FF)]">
+                      Read more
+                    </h3>
+                    <Image src="/arrowup.png" width={24} height={24} alt="arrow" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col items-center self-stretch pb-4 gap-4">
+              <Image src="/divider.png" width={1} height={2} alt="divider" />
+              <div className="flex items-start self-stretch gap-4">
+                <div className="flex items-center justify-center flex-1 gap-2 py-0 px-6">
+                  <Image src="/lab.png" width={24} height={24} alt="lab" />
+                  <h3 className="text-sm font-[350] leading-[20px] text-[var(--Primary-Heading,#FFF)]">
+                    Retake Test
+                  </h3>
+                </div>
+                <Image src="/Vector.png" width={1} height={24} alt="Divider" />
+                <div className="flex items-center justify-center flex-1 gap-2 py-0 px-6">
+                  <Image src="/Settings.png" width={24} height={24} alt="lab" />
+                  <h3 className="text-sm font-[350] leading-[20px] text-[var(--Primary-Heading,#FFF)]">
+                    Manage Personality Records
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="px-60 flex flex-col self-stretch gap-6">
+        <div className="flex flex-col items-start self-stretch gap-1">
+          <h3 className="text-[28.43px] leading-[125%] font-[350] text-white">Product recommendation</h3>
+          <p className="text-[rgba(255,255,255,0.75)] font-[350] text-[16px] leading-[145%] tracking-[-0.48px]">
+            These tools have been recommended to you based on previous purchase and your personality types
+          </p>
+        </div>
+
+        <div className="flex items-start self-stretch gap-6">
+          {/* DCAS Product */}
+          <div className="flex-1 flex flex-col items-start self-strech gap-4 rounded-xl bg-[rgba(255,255,255,0.05)]">
+            <div className="flex flex-col items-start flex-1 self-stretch p-6 gap-6">
+              <div className="flex flex-col justify-center items-start self-stretch gap-3">
+                <Image src="/image1.png" alt="DCAS" width={128} height={128} />
+                <div className="flex flex-col items-start self-stretch gap-2">
+                  <div className="flex flex-col items-start self-stretch gap-2">
+                    <div className="flex flex-col items-start self-stretch">
+                      <h2 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-base font-light leading-[145%] tracking-[-0.48px]">
+                        Introductory tool
+                      </h2>
+                      <h2 className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] font-light leading-[135%]">
+                        IA DCA on Steroids (DCAS)
+                      </h2>
+                    </div>
+                    <div className="w-full">
+                      <h2 className="text-lg font-[325] leading-[140%] tracking-[-0.54px] text-[var(--Secondary-Heading,rgba(255,255,255,0.75))]">
+                        Dollar Cost Average on Steroids (aka “DCAS”) is a first-of-its-kind, mathematically
+                        proven model to optimize your DCA strategy by timing market buys and loads based on
+                        numerous math models.
+                      </h2>
+                    </div>
+                  </div>
+                  <p className="text-[color:var(--Website,#5699FF)] font-inter text-sm font-semibold leading-5">
+                    Learn more
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col items-center self-stretch gap-4 pb-4">
+              <Image src="/divider.png" width={100} height={1} alt="divider" />
+              <div className="flex justify-end items-center self-stretch py-0 px-6 gap-4">
+                <div className="flex items-center flex-1 gap-2">
+                  <h2 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-[21.33px] font-[350] leading-[120%] line-through">
+                    $40
+                  </h2>
+                  <h5 className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] font-[350] leading-[135%]">
+                    $19 USD/mo.
+                  </h5>
+                </div>
+                <div className="flex items-center gap-4"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Arc Cloud Product */}
+          <div className="flex-1 flex flex-col gap-4 p-6 rounded-lg bg-[rgba(255,255,255,0.05)]">
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 relative">
+                <Image src="/image2.png" alt="Arc Cloud" layout="fill" objectFit="contain" />
+              </div>
+              <span className="text-white text-[18px] font-[350]">Additional tool</span>
+            </div>
+            <h4 className="text-white text-[21.33px] font-[350] leading-[135%]">IA Arc Cloud</h4>
+            <p className="text-[rgba(255,255,255,0.75)] text-[16px] font-[350] leading-[140%]">
+              The Arc Cloud is a model designed to help modern identity settings automatically for
+              co-integrated size.
+            </p>
+            <div className="flex items-center gap-2 mt-auto">
+              <span className="text-white text-[18px] font-[350] line-through">$54</span>
+              <span className="text-white text-[18px] font-[350]">$24 USD/mo.</span>
+            </div>
+          </div>
+
+          {/* Solana Product */}
+          <div className="flex-1 flex flex-col gap-4 p-6 rounded-lg bg-[rgba(255,255,255,0.05)]">
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 relative">
+                <Image src="/image3.png" alt="Solana Upside Model" layout="fill" objectFit="contain" />
+              </div>
+              <span className="text-white text-[18px] font-[350]">Manufacturer tool</span>
+            </div>
+            <h4 className="text-white text-[21.33px] font-[350] leading-[135%]">IA Solana Upside Model</h4>
+            <p className="text-[rgba(255,255,255,0.75)] text-[16px] font-[350] leading-[140%]">
+              Designer is not key and variable. Science guides in comparison to several of our prior products
+              models.
+            </p>
+            <div className="text-white text-[18px] font-[350] mt-auto">Free</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,69 +1,31 @@
-"use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import { useCart } from "@/context/cart/cart.context";
+import Image from "next/image";
+import React from "react";
 
-export default function Navbar() {
-  const { itemCounter } = useCart();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/products", label: "Products" },
-    { href: "/checkout", label: "Checkout", showCounter: true },
-  ];
-
+export default function NavBar() {
   return (
-    <nav className="bg-gray-900 text-gray-100 shadow-md sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center px-6 py-4">
-        {/* Brand */}
-        <Link href="/" className="text-2xl font-bold text-indigo-500">
-          TradeMaster AI
-        </Link>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="hover:text-indigo-400 transition-colors relative"
-            >
-              {link.label}
-              {link.showCounter && itemCounter > 0 && (
-                <span className="ml-1 text-xs bg-red-600 text-white rounded-full px-2">{itemCounter}</span>
-              )}
-            </Link>
-          ))}
+    <nav className="box-border shadow-[0_0_53px_0_rgba(0,0,0,0.25)] pt-4 px-60 pb-6 flex items-center justify-between self-stretch">
+      <h2 className="text-[#FFF] font-light text-[30.462px] uppercase">InvestAnswers</h2>
+      <div className="flex items-start gap-6">
+        <div>
+          <p className="">Crypto Compendium</p>
         </div>
-
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden text-gray-100 hover:text-indigo-400 transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? "Close" : "Menu"}
-        </button>
+        <div>
+          <p className="">SCP Profile</p>
+        </div>
+        <div>
+          <p className="">Product</p>
+        </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-gray-800">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block px-6 py-3 hover:bg-gray-700 transition-colors relative"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-              {link.showCounter && itemCounter > 0 && (
-                <span className="ml-1 text-xs bg-red-600 text-white rounded-full px-2">{itemCounter}</span>
-              )}
-            </Link>
-          ))}
+      <div className="flex items-center gap-6">
+        <div className="flex justify-center gap-1.5 items-center py-1.5 px-4 rounded-lg border border-[1px,rgba(255,255,255,0.75)]">
+          <Image src="/Question.png" width={24} height={24} alt="Question mark" />
+          <p>Support</p>
         </div>
-      )}
+        <div className="flex items-center gap-2">
+          <Image src="/Avatar.png" width={40} height={49} alt="avatar" />
+          <Image src="/arrow.png" width={24} height={24} alt="arrow" />
+        </div>
+      </div>
     </nav>
   );
 }
