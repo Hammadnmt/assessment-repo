@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} antialiased bg-black text-gray-100`}
+        className={`${geistSans.variable} ${poppins.variable} ${geistMono.variable} antialiased text-gray-100 bg-[#010203]`}
       >
         <CartProvider>
           {/* Global Toast Notifications */}
