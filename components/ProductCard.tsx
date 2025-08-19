@@ -27,7 +27,7 @@ export const Card = ({
   onCtaClick,
 }: ProductProps) => {
   return (
-    <div className="flex flex-col justify-between rounded-xl bg-black overflow-hidden h-full relative">
+    <div className="flex flex-col justify-between rounded-xl bg-black overflow-hidden h-full relative border border-[#212428]">
       <div className=" flex py-2 px-4 border rounded-2xl justify-center items-start absolute top-[16px] right-[16px] bg-[#4BE26C]">
         <p className="text-[color:var(--background,#010203)] [leading-trim:both] [text-edge:cap] text-sm font-medium">
           Helo

@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Card } from "@/components/ProductCard";
 import { InvestmentPersona } from "@/components/InvestmentPersona";
-
+import Subscription from "@/components/Subscription";
 export default function LandingPage() {
   return (
     <div className="flex flex-col items-center gap-16 self-stretch py-12 pb-24 ">
@@ -38,6 +38,7 @@ export default function LandingPage() {
       <div>
         <InvestmentPersona />
       </div>
+
       <div className="px-60 flex flex-col self-stretch gap-6">
         <div className="flex flex-col items-start self-stretch gap-1">
           <h3 className="text-[28.43px] leading-[125%] font-[350] text-white">Product recommendation</h3>
@@ -78,6 +79,7 @@ export default function LandingPage() {
           />
         </div>
       </div>
+      <Subscription />
     </div>
   );
 }
