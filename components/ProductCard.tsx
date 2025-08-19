@@ -28,7 +28,7 @@ export const Card = ({
 }: ProductProps) => {
   return (
     <div className="flex flex-col justify-between rounded-xl bg-black overflow-hidden h-full relative border border-[#212428]">
-      <div className=" flex py-2 px-4 border rounded-2xl justify-center items-start absolute top-[16px] right-[16px] bg-[#4BE26C]">
+      <div className=" flex py-2 px-4 border rounded-2xl justify-center items-start absolute top-[20px] right-[16px] bg-[#4BE26C]">
         <p className="text-[color:var(--background,#010203)] [leading-trim:both] [text-edge:cap] text-sm font-medium">
           Helo
         </p>
@@ -55,17 +55,13 @@ export const Card = ({
           </div>
 
           <div className="flex flex-col gap-2 flex-grow">
-            <p
-              className="text-lg font-[325] leading-[140%] tracking-[-0.54px] 
-             text-[var(--Secondary-Heading,rgba(255,255,255,0.75))] 
-             line-clamp-4 hover:line-clamp-none transition-all"
-            >
+            <p className="text-lg font-[325] leading-[140%] tracking-[-0.54px]text-[var(--Secondary-Heading,rgba(255,255,255,0.75))] line-clamp-4 hover:line-clamp-none transition-all">
               {description}
             </p>
-            <a href="#" className="text-[color:var(--Website,#5699FF)] ... self-start">
-              Read more
-            </a>
           </div>
+          <a href="#" className="text-[color:var(--Website,#5699FF)] ... self-start">
+            Read more
+          </a>
         </div>
       </div>
 
@@ -75,11 +71,11 @@ export const Card = ({
         <div className="flex justify-between items-center w-full">
           <div className="flex items-center gap-2">
             {originalPrice && (
-              <span className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-[21.33px] font-[350] leading-[120%] line-through">
+              <span className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-[21.33px] leading-[120%] line-through">
                 {originalPrice}
               </span>
             )}
-            <span className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] font-[350] leading-[135%]">
+            <span className="text-[color:var(--Primary-Heading,#FFF)] text-[21.33px] leading-[135%]">
               {isFree ? "FREE" : currentPrice}
             </span>
           </div>
@@ -89,9 +85,7 @@ export const Card = ({
               onClick={onCtaClick}
               className="bg-white border rounded-[8px] py-2 px-3.5 hover:bg-opacity-90 transition-colors"
             >
-              <span className="text-[color:var(--background,#010203)] text-sm font-[350] leading-5">
-                {ctaText}
-              </span>
+              <span className="text-[color:var(--background,#010203)] text-sm leading-5">{ctaText}</span>
             </button>
           )}
         </div>

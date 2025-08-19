@@ -42,10 +42,10 @@ const SubscriptionCard: React.FC<SubscriptionCardProps> = ({ image, title }) => 
 
       <div className="flex flex-col items-center self-stretch border border-l-0 border-r-0 border-b-0 border-t-[#212428]">
         <div className="flex items-center justify-center self-stretch gap-4 px-4 py-2">
-          <div className="flex items-center justify-center self-stretch py-4 gap-2 px-0">
+          <div className="flex items-center justify-center self-stretch` py-4 gap-2 px-0">
             <Image src="/Book.png" width={24} height={24} alt="guide" />
             <h2 className="text-[var(--Primary-Heading,#FFF)]  text-[14px]  leading-[20px]">
-              User guides & Videos
+              User guides Videos
             </h2>
           </div>
           <div className="flex flex-col items-center justify-center h-full">

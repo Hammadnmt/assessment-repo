@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Card } from "@/components/ProductCard";
 import { InvestmentPersona } from "@/components/InvestmentPersona";
 import Subscription from "@/components/Subscription";
+import Footer from "@/components/Footer";
 export default function LandingPage() {
   return (
     <div className="flex flex-col items-center gap-16 self-stretch py-12 pb-24 ">
@@ -80,6 +81,7 @@ export default function LandingPage() {
         </div>
       </div>
       <Subscription />
+      <Footer />
     </div>
   );
 }

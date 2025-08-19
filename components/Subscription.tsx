@@ -21,7 +21,7 @@ export default function Subscription() {
 
       <div className="flex flex-col items-start self-stretch gap-2">
         <div className="flex items-start  gap-4">
-          <div className="py-3 px-3 flex items-center justify-center gap-2">
+          <div className="py-3 flex items-center justify-center gap-2">
             <h3 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-xl font-semibold leading-5">
               All subscriptions
             </h3>
@@ -29,7 +29,7 @@ export default function Subscription() {
               <span>3</span>
             </div>
           </div>
-          <div className="py-3 px-3 flex items-center justify-center gap-2">
+          <div className="py-3 flex items-center justify-center gap-2">
             <h3 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-xl font-semibold leading-5">
               Active
             </h3>
@@ -37,7 +37,7 @@ export default function Subscription() {
               <span>2</span>
             </div>
           </div>
-          <div className="py-3 px-3 flex items-center justify-center gap-2">
+          <div className="py-3 flex items-center justify-center gap-2">
             <h3 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-xl font-semibold leading-5">
               Inactive
             </h3>
