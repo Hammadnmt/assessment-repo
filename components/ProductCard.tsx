@@ -29,8 +29,8 @@ export const Card = ({
   return (
     <div className="flex flex-col justify-between rounded-xl bg-black overflow-hidden h-full relative border border-[#212428]">
       <div className=" flex py-2 px-4 border rounded-2xl justify-center items-start absolute top-[20px] right-[16px] bg-[#4BE26C]">
-        <p className="text-[color:var(--background,#010203)] [leading-trim:both] [text-edge:cap] text-sm font-medium">
-          Helo
+        <p className="text-[color:var(--background,#010203)] [leading-trim:both] [text-edge:cap] text-sm font-medium font-poppins">
+          Save upto $21
         </p>
       </div>
       <div className="p-6">
@@ -55,7 +55,7 @@ export const Card = ({
           </div>
 
           <div className="flex flex-col gap-2 flex-grow">
-            <p className="text-lg font-[325] leading-[140%] tracking-[-0.54px]text-[var(--Secondary-Heading,rgba(255,255,255,0.75))] line-clamp-4 hover:line-clamp-none transition-all">
+            <p className="text-lg font-[325] leading-[140%] tracking-[-0.54px]text-[var(--Secondary-Heading,rgba(255,255,255,0.75))] line-clamp-2 transition-all">
               {description}
             </p>
           </div>

@@ -76,7 +76,6 @@ export default function LandingPage() {
             title="IA Solana Upside Model"
             description="Designed to help you visualize Solana's price in comparison to several of our price prediction models (ETH + ADA), the Solana Upside Model allows you to optimally allocate Solana as well as profit take and help you get accustomed to pair trading."
             currentPrice="FREE"
-            isFree={true}
           />
         </div>
       </div>

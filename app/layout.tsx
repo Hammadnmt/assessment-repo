@@ -49,7 +49,7 @@ export default function RootLayout({
               },
             }}
           />
-          <main className="min-h-screen flex flex-col">
+          <main className="flex flex-col">
             <NavBar />
             {children}
           </main>

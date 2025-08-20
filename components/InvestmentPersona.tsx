@@ -47,7 +47,7 @@ export const InvestmentPersona = () => {
                   </div>
 
                   {/* Persona description with read more functionality */}
-                  <p className="text-lg font-[325] leading-[140%] tracking-[-0.54px] text-[var(--Secondary-Heading,rgba(255,255,255,0.75))] line-clamp-4 hover:line-clamp-none transition-all">
+                  <p className="text-lg font-[325] leading-[140%] tracking-[-0.54px] text-[var(--Secondary-Heading,rgba(255,255,255,0.75))] line-clamp-3">
                     Lorem ipsum dolor sit amet consectetur. Semper in tincidunt non egestas. Tellus sit nec
                     amet quis et sagittis. Convallis id mattis fames lorem. Massa ultricies semper faucibus
                     nullam urna. Viverra posuere laoreet diam sit dictum. Dolor velit quam sit sit imperdiet
