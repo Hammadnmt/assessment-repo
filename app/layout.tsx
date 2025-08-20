@@ -54,10 +54,7 @@ export default function RootLayout({
               },
             }}
           />
-          <main className="flex flex-col">
-            <NavBar />
-            {children}
-          </main>
+          <main className="flex flex-col">{children}</main>
         </CartProvider>
       </body>
     </html>
