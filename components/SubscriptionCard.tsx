@@ -53,8 +53,8 @@ const SubscriptionCard: React.FC<SubscriptionCardProps> = ({ image, title }) => 
           </div>
           <div className="flex items-center justify-center py-4 gap-2 px-0">
             <Image src="/Settings.png" width={24} height={24} alt="guide" />
-            <h2 className="text-[var(--Primary-Heading,#FFF)] font-gotham text-[14px]  leading-[20px]">
-              User guides & Videos
+            <h2 className="text-white/75 font-gotham text-[14px] not-italic font-[350] leading-[20px]">
+              Manage Subscription
             </h2>
           </div>
         </div>

@@ -7,17 +7,36 @@ export default function NavBar() {
       <h2 className="text-[#FFF] font-light text-[30.462px] uppercase">InvestAnswers</h2>
       <div className="flex items-start gap-6">
         <div>
-          <p className="">Crypto Compendium</p>
+          <p className=" text-primary-heading font-poppins text-base font-normal leading-normal">
+            Crypto Compendium
+          </p>
         </div>
         <div>
-          <p className="">SCP Profile</p>
+          <p className=" text-primary-heading font-poppins text-[16px] font-normal leading-normal">
+            SCP Profile
+          </p>
         </div>
         <div>
-          <p className="">Product</p>
+          <p className=" text-primary-heading font-poppins text-[16px] font-normal leading-normal">Product</p>
+        </div>
+        <div>
+          <p className=" text-primary-heading font-poppins text-[16px] font-normal leading-normal">
+            Order FAQs
+          </p>
+        </div>
+        <div>
+          <p className=" text-primary-heading font-poppins text-[16px] font-normal leading-normal">
+            Newsletter
+          </p>
+        </div>
+        <div>
+          <p className=" text-primary-heading font-poppins text-[16px] font-normal leading-normal">
+            Customer
+          </p>
         </div>
       </div>
       <div className="flex items-center gap-6">
-        <div className="flex justify-center gap-1.5 items-center py-1.5 px-4 rounded-lg border border-[1px,rgba(255,255,255,0.75)]">
+        <div className="flex justify-center gap-1.5 items-center py-1.5 px-4 border border-white/75 rounded-lg ">
           <Image src="/Question.png" width={24} height={24} alt="Question mark" />
           <p>Support</p>
         </div>

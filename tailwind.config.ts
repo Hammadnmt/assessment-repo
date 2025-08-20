@@ -3,7 +3,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["--font-poppins", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
+        geist: ["var(--font-geist-sans)", "sans-serif"],
+        geistMono: ["var(--font-geist-mono)", "monospace"],
       },
       colors: {
         "primary-heading": "#FFF",

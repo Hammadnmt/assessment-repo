@@ -12,7 +12,7 @@ export default function Subscription() {
                 Your subscriptions
               </h2>
             </div>
-            <h3 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-base leading-[145%] tracking-[-0.48px]">
+            <h3 className="text-white/75 text-base leading-[145%] tracking-[-0.48px]">
               All the subscriptions that you purchased
             </h3>
           </div>
@@ -22,26 +22,20 @@ export default function Subscription() {
       <div className="flex flex-col items-start self-stretch gap-2">
         <div className="flex items-start  gap-4">
           <div className="py-3 flex items-center justify-center gap-2">
-            <h3 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-xl font-semibold leading-5">
-              All subscriptions
-            </h3>
-            <div className="flex py-0.5 px-2 flex items-center border border-[#7ACFE3] rounded-full">
+            <h3 className="text-white/75 text-xl font-semibold leading-5">All subscriptions</h3>
+            <div className="flex py-0.5 px-2  items-center border border-[#7ACFE3] rounded-full">
               <span>3</span>
             </div>
           </div>
           <div className="py-3 flex items-center justify-center gap-2">
-            <h3 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-xl font-semibold leading-5">
-              Active
-            </h3>
-            <div className="flex py-0.5 px-2 flex items-center border border-[#7ACFE3] rounded-full">
+            <h3 className="text-white/75 text-xl font-semibold leading-5">Active</h3>
+            <div className="flex py-0.5 px-2 items-center border border-[#7ACFE3] rounded-full">
               <span>2</span>
             </div>
           </div>
           <div className="py-3 flex items-center justify-center gap-2">
-            <h3 className="text-[color:var(--Secondary-Heading,rgba(255,255,255,0.75))] text-xl font-semibold leading-5">
-              Inactive
-            </h3>
-            <div className="flex py-0.5 px-2 flex items-center">
+            <h3 className="text-white/75 text-xl font-semibold leading-5">Inactive</h3>
+            <div className="flex py-0.5 px-2 items-center">
               <span>1</span>
             </div>
           </div>
